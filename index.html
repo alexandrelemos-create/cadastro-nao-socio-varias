@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content">
-<title>Cenário 1 — Cadastro pelo Sócio Várias</title>
+<title>Cenário 1 — Cadastro pelo Sócio</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}html,body{height:100%;height:100dvh;}
 body{background:#fff;display:flex;flex-direction:column;align-items:center;min-height:100dvh;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;margin:0;padding:0;}
@@ -213,7 +213,7 @@ input[readonly]{background:#f9f9f9;color:#666;}
     <input type="text" id="cpf-in" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" pattern="[0-9]*" oninput="fmtCPF(this);chkCPF()">
   </div>
   <div class="sp"></div>
-  <div class="ft"><button class="bp" id="cpf-btn" disabled data-maze-id="btn-cpf-acessar" onclick="handleCPF()">Acessar</button></div>
+  <div class="ft"><button class="bp" id="cpf-btn" data-maze-id="btn-cpf-acessar" onclick="handleCPF()" style="background:#e0e0e0;color:#aaa;cursor:default;">Acessar</button></div>
   <div class="brf"><img src="https://i.imgur.com/yrhadmn.png" style="width:100%;object-fit:contain;"></div>
   <div class="bs-ov hidden" id="bs-cpf">
     <div class="bs">
@@ -865,8 +865,8 @@ function goTo(id){
 }
 function closeBS(id){document.getElementById(id).classList.add('hidden');}
 function fmtCPF(el){let v=el.value.replace(/\D/g,'').slice(0,11);v=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');el.value=v;}
-function chkCPF(){document.getElementById('cpf-btn').disabled=document.getElementById('cpf-in').value.replace(/\D/g,'').length<11;}
-function handleCPF(){goTo('s-dados');}
+function chkCPF(){var valid=document.getElementById('cpf-in').value.replace(/\D/g,'').length>=11;var btn=document.getElementById('cpf-btn');btn.style.background=valid?'#7C3AED':'#e0e0e0';btn.style.color=valid?'#fff':'#aaa';btn.style.cursor=valid?'pointer':'default';btn.dataset.ready=valid?'1':'';}
+function handleCPF(){if(!document.getElementById('cpf-btn').dataset.ready)return;goTo('s-dados');}
 function chkSenha(){document.getElementById('acessar-btn').disabled=!document.getElementById('senha-in').value;}
 function togglePwd(id){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';}
 function chkDados(){const fs=['d1','d2','d3','d4','d5'];document.getElementById('dados-btn').disabled=!fs.every(f=>document.getElementById(f).value.trim());}
