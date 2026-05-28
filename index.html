@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content">
-<title>Cenário 1 — Cadastro pelo Sócio Várias</title>
+<title>Cenário 1 — Cadastro pelo Sócio</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}html,body{height:100%;height:100dvh;}
 body{background:#fff;display:flex;flex-direction:column;align-items:center;min-height:100dvh;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;margin:0;padding:0;}
@@ -823,7 +823,196 @@ input[readonly]{background:#f9f9f9;color:#666;}
   <div style="position:sticky;bottom:0;background:#f3f0ff;border-top:1px solid #ede9fe;padding:14px 20px 28px;display:flex;align-items:center;gap:8px;z-index:6;">
     <p style="flex:1;font-size:13px;color:#333;line-height:1.4;">Você ainda tem 2 empresas para preencher</p>
     <button onclick="goTo('s-gestao')" style="background:none;border:none;cursor:pointer;color:#888;font-size:15px;font-weight:600;white-space:nowrap;padding:0 4px;">Ver todas</button>
-    <button onclick="goTo('s-dados-emp')" style="background:none;border:none;cursor:pointer;color:#7C3AED;font-size:15px;font-weight:600;white-space:nowrap;padding:0 4px;">Próxima</button>
+    <button onclick="goTo('s-dados-emp-2')" style="background:none;border:none;cursor:pointer;color:#7C3AED;font-size:15px;font-weight:600;white-space:nowrap;padding:0 4px;">Próxima</button>
+  </div>
+</div>
+
+<!-- S23-B: Dados empresa 2 (1/2) -->
+<div class="screen" id="s-dados-emp-2">
+  <div class="logo"><img src="https://i.imgur.com/K726fWY.png" style="height:32px;object-fit:contain;"><div class="mla"><button class="av">👤</button></div></div>
+  <div class="body" style="margin-top:8px;">
+    <div style="margin-bottom:4px;font-size:15px;font-weight:700;color:#111;">Farmácia Saúde Total Ltda</div>
+    <div style="font-size:12px;color:#888;margin-bottom:16px;">11.222.333/0001-44</div>
+    <div class="pc"><div class="sb" style="border-color:#7C3AED;color:#7C3AED;">1/2</div><div><div style="font-size:15px;font-weight:700;color:#7C3AED;">Dados empresariais</div><div style="font-size:12px;color:#888;">Em andamento...</div></div></div>
+
+    <div class="sc" style="margin-bottom:12px;">
+      <h3 style="margin-bottom:12px;">Procurador legalmente constituído</h3>
+      <div style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;" onclick="toggleCk2('ck-proc2',null)">
+        <div id="ck-proc2" style="width:18px;height:18px;border:2px solid #ccc;border-radius:4px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#7C3AED;font-weight:700;transition:border-color .15s;"></div>
+        <span style="font-size:13px;color:#555;line-height:1.5;">Possuo procuração legal para representar o estabelecimento.</span>
+      </div>
+    </div>
+
+    <div class="sc"><h3>Dados de contato da empresa</h3>
+      <label style="margin-top:0;">Telefone comercial</label><input type="text" placeholder="Digite aqui...">
+      <label>E-mail comercial</label><input type="text" placeholder="Digite aqui...">
+    </div>
+
+    <div class="ab"><span style="font-size:18px;">⚠️</span><p>Identificamos algumas informações de sócios com dados incompletos. Preencha os dados abaixo para prosseguir.</p></div>
+
+    <div class="sc"><h3>Dados incompletos do sócio</h3>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;"><div class="sav">AL</div><div><div style="font-size:15px;font-weight:600;color:#111;">Ana Lima</div><div style="font-size:12px;color:#888;">Sócia da empresa</div></div></div>
+      <label style="margin-top:0;">Nome da mãe</label><input type="text" placeholder="Digite aqui...">
+      <label>Telefone</label><input type="text" placeholder="Digite aqui...">
+      <label>E-mail</label><input type="text" placeholder="Digite aqui...">
+    </div>
+
+    <div id="box-info-socio2" style="display:flex;gap:10px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:12px;margin-bottom:12px;">
+      <span style="font-size:18px;flex-shrink:0;">ℹ️</span>
+      <p style="font-size:13px;color:#1e40af;line-height:1.4;">Seu CPF não está no quadro societário desta empresa. Apenas sócios podem aprovar o cadastro de dados.</p>
+    </div>
+
+    <div id="box-sel-socio2" class="sc" style="padding-bottom:8px;">
+      <h3 style="margin-bottom:4px;">Selecione o sócio da empresa</h3>
+      <p style="font-size:13px;color:#888;margin-bottom:12px;">O sócio aprova os dados cadastrados por você</p>
+
+      <div id="s2-al" style="border:1.5px solid #e0e0e0;border-radius:12px;margin-bottom:8px;overflow:hidden;cursor:pointer;" onclick="toggleSocio2('al')">
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;">
+          <div id="r2-al" style="width:20px;height:20px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;"></div>
+          <span style="font-size:15px;font-weight:500;color:#111;">Ana Lima</span>
+        </div>
+        <div id="s2-al-detail" style="display:none;padding:0 14px 14px;border-top:1px solid #ede9fe;">
+          <div style="font-size:13px;color:#555;margin-top:10px;margin-bottom:2px;">a*******@****.com</div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:10px;">(11) 9****-****</div>
+          <label style="font-size:12px;color:#444;margin-bottom:4px;display:block;margin-top:0;">E-mail do sócio ou representante</label>
+          <input type="text" placeholder="ana@minha.com" style="width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:10px 12px;font-size:14px;color:#111;background:#fff;outline:none;" onclick="event.stopPropagation()">
+          <p style="font-size:11px;color:#aaa;margin-top:4px;line-height:1.4;">Confirme o e-mail preferencial do sócio para envio do link de aprovação de cadastro.</p>
+          <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+            <div style="background:#ede9fe;border-radius:20px;padding:4px 10px;font-size:12px;color:#7C3AED;font-weight:500;">Farmácia Saúde Total Ltda</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="s2-rc" style="border:1.5px solid #e0e0e0;border-radius:12px;margin-bottom:8px;overflow:hidden;cursor:pointer;" onclick="toggleSocio2('rc')">
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;">
+          <div id="r2-rc" style="width:20px;height:20px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;"></div>
+          <span style="font-size:15px;font-weight:500;color:#111;">Roberto Costa</span>
+        </div>
+        <div id="s2-rc-detail" style="display:none;padding:0 14px 14px;border-top:1px solid #f0f0f0;">
+          <div style="font-size:13px;color:#555;margin-top:10px;margin-bottom:2px;">r*******@****.com</div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:10px;">(21) 9****-****</div>
+          <label style="font-size:12px;color:#444;margin-bottom:4px;display:block;margin-top:0;">E-mail do sócio ou representante</label>
+          <input type="text" placeholder="roberto@minha.com" style="width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:10px 12px;font-size:14px;color:#111;background:#fff;outline:none;" onclick="event.stopPropagation()">
+          <p style="font-size:11px;color:#aaa;margin-top:4px;line-height:1.4;">Confirme o e-mail preferencial do sócio para envio do link de aprovação de cadastro.</p>
+        </div>
+      </div>
+
+      <div id="s2-fm" style="border:1.5px solid #e0e0e0;border-radius:12px;margin-bottom:4px;overflow:hidden;cursor:pointer;" onclick="toggleSocio2('fm')">
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;">
+          <div id="r2-fm" style="width:20px;height:20px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;"></div>
+          <span style="font-size:15px;font-weight:500;color:#111;">Fernanda Melo</span>
+        </div>
+        <div id="s2-fm-detail" style="display:none;padding:0 14px 14px;border-top:1px solid #f0f0f0;">
+          <div style="font-size:13px;color:#555;margin-top:10px;margin-bottom:2px;">f*******@****.com</div>
+          <div style="font-size:12px;color:#aaa;margin-bottom:10px;">(31) 9****-****</div>
+          <label style="font-size:12px;color:#444;margin-bottom:4px;display:block;margin-top:0;">E-mail do sócio ou representante</label>
+          <input type="text" placeholder="fernanda@minha.com" style="width:100%;border:1.5px solid #e0e0e0;border-radius:10px;padding:10px 12px;font-size:14px;color:#111;background:#fff;outline:none;" onclick="event.stopPropagation()">
+          <p style="font-size:11px;color:#aaa;margin-top:4px;line-height:1.4;">Confirme o e-mail preferencial do sócio para envio do link de aprovação de cadastro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><button class="bp" onclick="goTo('s-docs-emp-2')">Continuar</button><div class="lsair">Sair</div></div>
+</div>
+
+<!-- S24-B: Documentos empresa 2 (2/2) -->
+<div class="screen" id="s-docs-emp-2">
+  <div class="logo"><img src="https://i.imgur.com/K726fWY.png" style="height:32px;object-fit:contain;"><div class="mla"><button class="av">👤</button></div></div>
+  <div class="body" style="margin-top:8px;">
+    <div style="margin-bottom:4px;font-size:15px;font-weight:700;color:#111;">Farmácia Saúde Total Ltda</div>
+    <div style="font-size:12px;color:#888;margin-bottom:16px;">11.222.333/0001-44</div>
+    <div class="pc"><div class="sb" style="border-color:#7C3AED;color:#7C3AED;">2/2</div><div><div style="font-size:15px;font-weight:700;color:#7C3AED;">Documentos da empresa</div><div style="font-size:12px;color:#888;">Em andamento...</div></div></div>
+    <div class="ds"><div class="dtr"><div class="dic">📄</div><div class="dnm">Contrato social</div><span style="color:#bbb;">ℹ</span></div>
+      <div class="uz" onclick="toggleUpload(this)"><div style="font-size:24px;color:#7C3AED;">↑</div><div style="font-size:14px;font-weight:600;color:#333;margin-top:4px;">Selecionar arquivos</div><p>Formatos aceitos: PDF, PNG ou JPG. Tamanho máximo: 8 MB.</p></div>
+    </div>
+    <div class="ds"><div class="dtr"><div class="dic">📄</div><div class="dnm">Comprovante de endereço</div><span style="color:#bbb;">ℹ</span></div>
+      <div class="uz" onclick="toggleUpload(this)"><div style="font-size:24px;color:#7C3AED;">↑</div><div style="font-size:14px;font-weight:600;color:#333;margin-top:4px;">Selecionar arquivos</div><p>Formatos aceitos: PDF, PNG ou JPG. Tamanho máximo: 8 MB.</p></div>
+      <div class="ckr" onclick="toggleCk2('ckb2','decl-end2')"><div class="cks" id="ckb2"></div><span style="font-size:13px;color:#555;">Não tenho comprovante. Quero utilizar uma declaração de endereço.</span></div>
+      <div id="decl-end2" class="hidden dstps">
+        <div style="font-size:13px;font-weight:600;color:#111;margin-top:4px;">Como fazer a declaração de endereço</div>
+        <div class="dst"><div class="dnum">1</div><span>Acesse o modelo e preencha com seus dados.</span></div>
+        <div class="dst"><div class="dnum">2</div><span>Siga as instruções para carregamento de documentos.</span></div>
+        <div class="dst"><div class="dnum">3</div><span>Efetue a assinatura digital da declaração.</span></div>
+        <div class="dst"><div class="dnum">4</div><span>Aguarde o recebimento no e-mail e WhatsApp cadastrados.</span></div>
+        <div class="dst"><div class="dnum">5</div><span>Após o recebimento, baixe o documento e carregue no campo acima.</span></div>
+      </div>
+    </div>
+    <div class="ds"><div class="dtr"><div class="dic">📄</div><div class="dnm">Última alteração contratual</div><span style="color:#bbb;">ℹ</span></div>
+      <div class="uz" onclick="toggleUpload(this)"><div style="font-size:24px;color:#7C3AED;">↑</div><div style="font-size:14px;font-weight:600;color:#333;margin-top:4px;">Selecionar arquivos</div><p>Formatos aceitos: PDF, PNG ou JPG. Tamanho máximo: 8 MB.</p></div>
+      <div class="ckr" onclick="toggleCk2('ckc2',null)"><div class="cks" id="ckc2"></div><span style="font-size:13px;color:#555;">Minha empresa não realizou alteração contratual nem eleição de novo representante legal.</span></div>
+    </div>
+    <div id="box-procuracao2" class="ds hidden"><div class="dtr"><div class="dic">📄</div><div class="dnm">Procuração legal</div><span style="color:#bbb;">ℹ</span></div>
+      <div class="uz" onclick="toggleUpload(this)"><div style="font-size:24px;color:#7C3AED;">↑</div><div style="font-size:14px;font-weight:600;color:#333;margin-top:4px;">Selecionar arquivos</div><p>Formatos aceitos: PDF, PNG ou JPG. Tamanho máximo: 8 MB.</p></div>
+    </div>
+  </div>
+  <div class="ft"><button class="bp" onclick="goTo('s-banco-2')">Continuar</button><button class="bo" onclick="goTo('s-dados-emp-2')">Voltar</button></div>
+</div>
+
+<!-- S25-B: Conta bancária empresa 2 -->
+<div class="screen" id="s-banco-2">
+  <div class="logo"><img src="https://i.imgur.com/K726fWY.png" style="height:32px;object-fit:contain;"><div class="mla"><button class="av">👤</button></div></div>
+  <div class="body" style="margin-top:8px;">
+    <div style="margin-bottom:4px;font-size:15px;font-weight:700;color:#111;">Farmácia Saúde Total Ltda</div>
+    <div style="font-size:12px;color:#888;margin-bottom:16px;">11.222.333/0001-44</div>
+    <div class="pc"><div class="sb" style="border-color:#7C3AED;color:#7C3AED;">3/3</div><div><div style="font-size:15px;font-weight:700;color:#7C3AED;">Conta bancária</div><div style="font-size:12px;color:#888;">Em andamento...</div></div></div>
+    <div class="sc"><h3>Dados bancários</h3>
+      <label style="margin-top:0;">Banco</label><div class="sf"><span>Selecione o banco</span><span>∨</span></div>
+      <label>Tipo da conta</label><div class="sf"><span>Selecione o tipo</span><span>∨</span></div>
+      <label>Agência</label><input type="text" placeholder="Digite o número da agência"><div style="font-size:11px;color:#aaa;margin-top:3px;">Inclua o dígito se houver</div>
+      <label>Conta</label><input type="text" placeholder="Digite o número da conta"><div style="font-size:11px;color:#aaa;margin-top:3px;">Inclua o dígito se houver</div>
+    </div>
+    <div class="ds"><div class="dtr"><div class="dic">📄</div><div class="dnm">Comprovante bancário</div><span style="color:#bbb;">ℹ</span></div>
+      <div class="uz" onclick="toggleUpload(this)"><div style="font-size:24px;color:#7C3AED;">↑</div><div style="font-size:14px;font-weight:600;color:#333;margin-top:4px;">Selecionar arquivos</div><p>Formatos aceitos: PDF, PNG ou JPG. Tamanho máximo: 8 MB.</p></div>
+    </div>
+  </div>
+  <div class="ft"><button class="bp" onclick="goTo('s-next-2')">Continuar</button><button class="bo" onclick="goTo('s-docs-emp-2')">Voltar</button></div>
+</div>
+
+<!-- S26-B: Próximos passos empresa 2 -->
+<div class="screen" id="s-next-2">
+  <div id="toast-next-2" style="position:absolute;top:20px;left:50%;transform:translateX(-50%) translateY(-80px);z-index:99;background:#111;color:#fff;border-radius:50px;padding:12px 20px;font-size:14px;font-weight:500;white-space:nowrap;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;opacity:0;pointer-events:none;">
+    <span style="font-size:16px;">✅</span> Tudo certo com seu cadastro até aqui!
+  </div>
+  <div class="tpb">
+    <button style="background:none;border:none;cursor:pointer;font-size:22px;color:#555;" onclick="goTo('s-menu')">☰</button>
+    <img src="https://i.imgur.com/K726fWY.png" style="height:28px;object-fit:contain;">
+    <div style="display:flex;gap:14px;align-items:center;"><div class="nw"><span style="font-size:22px;">🔔</span><div class="nd">+9</div></div><button class="av" style="background:none;border:none;cursor:pointer;font-size:22px;color:#555;">👤</button></div>
+  </div>
+  <div class="bkns" onclick="goTo('s-gestao')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg><div><div style="font-size:11px;color:#888;">Próximos passos na nossa parceria</div><div style="font-size:15px;font-weight:700;color:#111;">Farmácia Saúde Total Ltda</div></div></div>
+  <div class="body" style="padding-top:4px;">
+    <div class="nsc">
+      <span class="stc" style="background:#f3f0ff;color:#6b21a8;">● Aguardando liberação</span>
+      <div style="display:flex;gap:14px;align-items:flex-start;margin-top:4px;">
+        <span style="font-size:40px;flex-shrink:0;line-height:1;">⏳</span>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#111;margin-bottom:6px;line-height:1.3;">Pendente validação por sócio</div>
+          <div style="font-size:13px;color:#666;line-height:1.5;">É necessário aprovação do cadastro realizado por um sócio ou representante legalmente autorizado.</div>
+          <div style="margin-top:10px;font-size:13px;font-weight:600;color:#7C3AED;cursor:pointer;">Saiba mais →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sp"></div>
+  <div class="brf">
+    <img src="https://i.imgur.com/yrhadmn.png" style="width:100%;object-fit:contain;">
+  </div>
+  <div style="position:sticky;bottom:0;background:#f3f0ff;border-top:1px solid #ede9fe;padding:14px 20px 28px;display:flex;align-items:center;gap:8px;z-index:6;">
+    <p style="flex:1;font-size:13px;color:#333;line-height:1.4;">Você ainda tem 1 empresa para preencher</p>
+    <button onclick="goTo('s-gestao')" style="background:none;border:none;cursor:pointer;color:#888;font-size:15px;font-weight:600;white-space:nowrap;padding:0 4px;">Ver todas</button>
+    <button onclick="goTo('s-sucesso')" style="background:none;border:none;cursor:pointer;color:#7C3AED;font-size:15px;font-weight:600;white-space:nowrap;padding:0 4px;">Próxima</button>
+  </div>
+</div>
+
+<!-- S-SUCESSO: Tela de sucesso / fim da pesquisa -->
+<div class="screen" id="s-sucesso">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px;text-align:center;">
+    <div style="width:80px;height:80px;border-radius:50%;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:28px;">🎉</div>
+    <h1 style="font-size:24px;font-weight:700;color:#111;line-height:1.3;margin-bottom:12px;">Tudo certo por aqui!</h1>
+    <p style="font-size:15px;color:#555;line-height:1.6;margin-bottom:8px;">Você concluiu o preenchimento de todas as empresas.</p>
+    <p style="font-size:15px;color:#555;line-height:1.6;margin-bottom:32px;">Obrigado por participar da nossa pesquisa! Clique na setinha na lateral esquerda da tela e depois clique em "Encerrar tarefa", então responda algumas perguntas para completar a pesquisa </p>
+
+  </div>
+  <div class="ft">
   </div>
 </div>
 
@@ -855,6 +1044,12 @@ function goTo(id){
     tg.style.opacity='0';tg.style.transform='translateX(-50%) translateY(-120px)';
     setTimeout(function(){tg.style.opacity='1';tg.style.transform='translateX(-50%) translateY(0)';},200);
     setTimeout(function(){tg.style.opacity='0';tg.style.transform='translateX(-50%) translateY(-120px)';},5000);
+  }
+  if(id==='s-next-2'){
+    var t2=document.getElementById('toast-next-2');
+    t2.style.opacity='0';t2.style.transform='translateX(-50%) translateY(-80px)';
+    setTimeout(function(){t2.style.opacity='1';t2.style.transform='translateX(-50%) translateY(0)';},200);
+    setTimeout(function(){t2.style.opacity='0';t2.style.transform='translateX(-50%) translateY(-80px)';},3500);
   }
   if(id==='s-next'){
     var t=document.getElementById('toast-next');
@@ -925,7 +1120,26 @@ function cadastrarEmpresa(){
   document.getElementById('ae-ft').classList.add('hidden');
   goTo(destino);
 }
-function toggleCk(ckId,declId){const ck=document.getElementById(ckId);ck.classList.toggle('on');const isOn=ck.classList.contains('on');ck.textContent=isOn?'✓':'';ck.style.borderColor=isOn?'#7C3AED':'#ccc';if(ckId==='ck-proc'){document.getElementById('box-info-socio').style.display=isOn?'none':'flex';document.getElementById('box-sel-socio').style.display=isOn?'none':'';document.getElementById('box-procuracao').classList.toggle('hidden',!isOn);}if(declId){document.getElementById(declId).classList.toggle('hidden');}}
+function toggleCk2(ckId,declId){const ck=document.getElementById(ckId);ck.classList.toggle('on');const isOn=ck.classList.contains('on');ck.textContent=isOn?'✓':'';ck.style.borderColor=isOn?'#7C3AED':'#ccc';if(ckId==='ck-proc2'){document.getElementById('box-info-socio2').style.display=isOn?'none':'flex';document.getElementById('box-sel-socio2').style.display=isOn?'none':'';document.getElementById('box-procuracao2').classList.toggle('hidden',!isOn);}if(declId){document.getElementById(declId).classList.toggle('hidden');}}
+
+function toggleSocio2(key){
+  var socios=['al','rc','fm'];
+  socios.forEach(function(k){
+    var wrap=document.getElementById('s2-'+k);
+    var detail=document.getElementById('s2-'+k+'-detail');
+    var radio=document.getElementById('r2-'+k);
+    if(k===key){
+      wrap.style.border='1.5px solid #7C3AED';wrap.style.background='#faf9ff';
+      radio.style.cssText='width:20px;height:20px;border-radius:50%;border:2px solid #7C3AED;background:#7C3AED;display:flex;align-items:center;justify-content:center;flex-shrink:0;';
+      radio.innerHTML='<div style="width:9px;height:9px;border-radius:50%;background:#fff;"></div>';
+      detail.style.display='';
+    } else {
+      wrap.style.border='1.5px solid #e0e0e0';wrap.style.background='';
+      radio.style.cssText='width:20px;height:20px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;';
+      radio.innerHTML='';detail.style.display='none';
+    }
+  });
+}
 function startTimer(elId,s){if(tmrs[elId])clearInterval(tmrs[elId]);let r=s;const el=document.getElementById(elId);tmrs[elId]=setInterval(()=>{r--;el.textContent=String(Math.floor(r/60)).padStart(2,'0')+':'+String(r%60).padStart(2,'0');if(r<=0)clearInterval(tmrs[elId]);},1000);}
 
 function toggleSocio(key) {
@@ -992,7 +1206,9 @@ function toggleUpload(el){
     's-unico-intro','s-unico-selfie','s-unico-loading','s-unico-pronto',
     's-unico-verif','s-unico-ok','s-senha-criar','s-loading-emp',
     's-cadastrar-estab','s-gestao','s-next-cashback','ae-sheet',
-    's-cnpj','s-dados-emp','s-docs-emp','s-banco','s-next','s-menu'
+    's-cnpj','s-dados-emp','s-docs-emp','s-banco','s-next',
+    's-dados-emp-2','s-docs-emp-2','s-banco-2','s-next-2','s-sucesso',
+    's-menu'
   ];
   function currentIndex(){
     return screens.findIndex(function(id){
