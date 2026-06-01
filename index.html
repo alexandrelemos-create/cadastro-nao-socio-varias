@@ -1183,8 +1183,19 @@ function abrirSelfie() {
     window.removeEventListener('focus', onReturn);
     setTimeout(function() { goTo('s-senha-criar'); }, 600);
   }
-  document.addEventListener('visibilitychange', onReturn);
-  window.addEventListener('focus', onReturn);
+
+  // Aguarda 1s antes de ativar os listeners — evita disparo imediato
+  // e cancela automaticamente após 5 min para não interferir com o Maze
+  var cancelTimer = setTimeout(function() {
+    document.removeEventListener('visibilitychange', onReturn);
+    window.removeEventListener('focus', onReturn);
+  }, 5 * 60 * 1000);
+
+  setTimeout(function() {
+    if (handled) return;
+    document.addEventListener('visibilitychange', onReturn);
+    window.addEventListener('focus', onReturn);
+  }, 1000);
 }
 // Dica: CPF começando com 1 = já cadastrado | OTP correto = 111111
 
